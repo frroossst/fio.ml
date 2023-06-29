@@ -1,0 +1,4 @@
+(executable
+ (public_name fiona)
+ (name main)
+ (libraries fiona))
