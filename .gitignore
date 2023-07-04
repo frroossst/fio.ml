@@ -28,4 +28,8 @@ setup.log
 # Local OPAM switch
 _opam/
 
+# IDE setup
 .vscode/
+
+# executable
+fiona
