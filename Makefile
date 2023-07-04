@@ -10,9 +10,12 @@ help:
 	@echo "make clean"
 	@echo "    clean the project"
 
+compile:
+	ocamlc -o fiona -I opcodes opcodes/*.ml -I runtime runtime/*.ml -I compiler compiler/*.ml main.ml
+
 build:
-	ocamlopt -I compiler/ -I opcodes/ -I runtime/ -c compiler/* opcodes/* runtime/*
-	ocamlopt -I compiler/ -I opcodes/ -I runtime/ -o fiona compiler/*.cmx opcodes/*.cmx runtime/*.cmx compiler/*.cmi opcodes/*.cmi runtime/*.cmi
+	ocamlopt -I compiler/ -I opcodes/ -I runtime/ -c compiler/* opcodes/* runtime/* main.ml
+	ocamlopt -I compiler/ -I opcodes/ -I runtime/ -o fiona compiler/*.cmx opcodes/*.cmx runtime/*.cmx compiler/*.cmi opcodes/*.cmi runtime/*.cmi main.cmx
 
 run:
 	./fiona
